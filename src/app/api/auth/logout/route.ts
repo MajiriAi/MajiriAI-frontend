@@ -1,0 +1,2 @@
+import { NextResponse } from "next/server"; import { SESSION_COOKIE,getSessionToken } from "@/lib/auth/session";
+export async function POST(){const token=getSessionToken();if(token)await fetch(`${process.env.API_URL??"http://localhost:8000/api"}/auth/logout`,{method:'POST',headers:{Authorization:`Bearer ${token}`,Accept:'application/json'}});const response=NextResponse.json({ok:true});response.cookies.set(SESSION_COOKIE,'',{httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'lax',path:'/',maxAge:0});return response;}
