@@ -9,7 +9,7 @@ import { ApiError, type ApiErrorResponse } from "@/types/api";
  * of client-side JS entirely (see lib/auth/session.ts).
  */
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8002/api";
 
 interface RequestOptions {
   method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";

@@ -44,7 +44,7 @@ function FormattedMessage({ content }: { content: string }) {
       flushList();
       nodes.push(
         <p key={nodes.length} style={serifFont} className="mt-3 mb-1 text-[15px] font-medium text-[#20221F]">
-          {renderInline(h[1])}
+          {renderInline(h[1] ?? "")}
         </p>
       );
       continue;
@@ -53,14 +53,14 @@ function FormattedMessage({ content }: { content: string }) {
     if (ul) {
       if (listBuffer?.ordered) flushList();
       if (!listBuffer) listBuffer = { ordered: false, items: [] };
-      listBuffer.items.push(ul[1]);
+      listBuffer.items.push(ul[1] ?? "");
       continue;
     }
     const ol = line.match(/^\d+\.\s+(.*)/);
     if (ol) {
       if (listBuffer && !listBuffer.ordered) flushList();
       if (!listBuffer) listBuffer = { ordered: true, items: [] };
-      listBuffer.items.push(ol[1]);
+      listBuffer.items.push(ol[1] ?? "");
       continue;
     }
     if (line.trim() === "") { flushList(); continue; }
