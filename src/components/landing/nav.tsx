@@ -95,6 +95,12 @@ export function LandingNav() {
             )}
           </div>
           <Link
+            href="/onboarding"
+            className="rounded-full bg-[#2563EB] px-4 py-2 text-sm font-semibold text-white shadow-xs transition hover:bg-blue-700"
+          >
+            Onboarding →
+          </Link>
+          <Link
             href="/login"
             className="rounded-full border border-[#c9c7f5] bg-white px-5 py-2 text-sm font-semibold text-[#4f46e5] shadow-sm transition hover:border-[#4f46e5] hover:bg-[#f6f5ff]"
           >
@@ -122,7 +128,10 @@ export function LandingNav() {
                 {link.label}
               </a>
             ))}
-            <Link href="/login" onClick={() => setOpen(false)} className="mt-2 rounded-full border border-[#c9c7f5] bg-white px-4 py-2.5 text-center font-semibold text-[#4f46e5]">
+            <Link href="/onboarding" onClick={() => setOpen(false)} className="mt-2 rounded-full bg-[#2563EB] px-4 py-2.5 text-center font-semibold text-white shadow-xs">
+              Onboarding →
+            </Link>
+            <Link href="/login" onClick={() => setOpen(false)} className="mt-1 rounded-full border border-[#c9c7f5] bg-white px-4 py-2.5 text-center font-semibold text-[#4f46e5]">
               Sign In
             </Link>
           </nav>
