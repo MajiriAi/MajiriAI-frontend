@@ -100,8 +100,24 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
       )}
 
       <button type="submit" disabled={loading} className="btn w-full disabled:opacity-60">
-        {loading ? "Please wait…" : isRegister ? "Create your account" : "Sign in to Blue Ocean"}
+        {loading ? "Please wait…" : isRegister ? "Create your account" : "Sign in"}
       </button>
+
+      <div className="relative my-4">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-slate-200" />
+        </div>
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="bg-white px-2 text-slate-400">or explore without backend</span>
+        </div>
+      </div>
+
+      <a
+        href="/api/auth/demo?next=/onboarding"
+        className="flex items-center justify-center gap-2 w-full rounded-xl border border-blue-200 bg-blue-50 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-100 transition"
+      >
+        <span>⚡ Enter with Demo Pass</span>
+      </a>
 
       <p className="text-center text-xs text-slate-400">
         {isRegister ? "Free to start. No credit card required." : "You'll be back where you left off."}

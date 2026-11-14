@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const SESSION_COOKIE = "founder_copilot_session";
 const PROTECTED_PREFIXES = [
   "/dashboard",
-  "/onboarding",
+  // "/onboarding", // Bypassed for UI preview and dev mode
   "/startup",
   "/goals",
   "/tasks",

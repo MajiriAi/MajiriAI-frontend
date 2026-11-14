@@ -13,27 +13,56 @@ const HEALTH_STYLES: Record<GoalHealthStatus, string> = {
 
 export function Dashboard() {
   const [data, setData] = useState<DashboardData>();
-  const [error, setError] = useState(false);
+  const [errorStatus, setErrorStatus] = useState<number | null>(null);
 
   useEffect(() => {
     fetch("/api/backend/dashboard")
       .then(async (r) => {
-        if (!r.ok) throw new Error("Request failed");
+        if (!r.ok) {
+          setErrorStatus(r.status);
+          return;
+        }
         setData(await r.json());
       })
-      .catch(() => setError(true));
+      .catch(() => setErrorStatus(0));
   }, []);
 
-  if (error)
+  if (errorStatus !== null) {
+    const isUnauthenticated = errorStatus === 401 || errorStatus === 403;
+    const needsOnboarding = errorStatus === 404;
+
     return (
       <main className="mx-auto max-w-5xl px-6 py-12">
         <h1 className="text-3xl font-semibold text-slate-900">Dashboard</h1>
-        <p className="mt-3 text-slate-600">We couldn't load your workspace.</p>
-        <button onClick={() => location.reload()} className="btn mt-4">
-          Try again
-        </button>
+        {isUnauthenticated ? (
+          <>
+            <p className="mt-3 text-slate-600">
+              You aren&apos;t signed in, or you&apos;re viewing the demo preview. Create an account or sign in to save your onboarding answers and open your workspace.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/register" className="btn">Create account</Link>
+              <Link href="/login" className="btn-ghost">Sign in</Link>
+              <Link href="/onboarding" className="btn-ghost">Back to onboarding</Link>
+            </div>
+          </>
+        ) : needsOnboarding ? (
+          <>
+            <p className="mt-3 text-slate-600">
+              Your workspace hasn&apos;t been set up yet. Finish onboarding to create your dashboard.
+            </p>
+            <Link href="/onboarding" className="btn mt-4">Continue onboarding</Link>
+          </>
+        ) : (
+          <>
+            <p className="mt-3 text-slate-600">We couldn&apos;t load your workspace.</p>
+            <button onClick={() => location.reload()} className="btn mt-4">
+              Try again
+            </button>
+          </>
+        )}
       </main>
     );
+  }
 
   if (!data)
     return (
@@ -116,7 +145,7 @@ export function Dashboard() {
           <p className="mt-3 text-slate-700">{data.current_goal?.title ?? "No active goal yet"}</p>
         </section>
         <section className="card">
-          <h2 className="font-semibold text-slate-900">Today's priorities</h2>
+          <h2 className="font-semibold text-slate-900">Today&apos;s priorities</h2>
           {data.todays_tasks.length ? (
             data.todays_tasks.map((t) => (
               <p className="mt-3 text-slate-700" key={t.id}>{t.title}</p>

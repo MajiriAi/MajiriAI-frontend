@@ -1,333 +1,306 @@
 import Link from "next/link";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { LandingNav } from "@/components/landing/nav";
-import { Logo } from "@/components/brand/logo";
+import { Earth, HeroVisual } from "@/components/landing/hero-visual";
+import { JourneyForm } from "@/components/landing/journey-form";
 
-const HERO_PILLARS = [
-  { title: "Plan Smarter", desc: "AI-powered guidance that keeps every decision grounded in your real progress." },
-  { title: "Build Faster", desc: "Turn your goals and next steps into a clear plan you can act on every day." },
-  { title: "Grow Systematically", desc: "While you work, Blue Ocean learns your journey and surfaces what matters most." },
-];
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 const FEATURES = [
-  {
-    title: "Build a professional website",
-    desc: "Present your business with a polished, ready-to-launch online presence.",
-    icon: "M16 8a5 5 0 0 0-9.9-1M8 16a5 5 0 0 0 9.9-1M4 12h16",
-  },
-  {
-    title: "Run email marketing campaigns",
-    desc: "Reach your audience with campaigns that convert leads into customers.",
-    icon: "M4 4h16v14H4zM4 6l8 6 8-6",
-  },
-  {
-    title: "Manage social media",
-    desc: "Plan, publish, and track your presence across the channels you use.",
-    icon: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z",
-  },
-  {
-    title: "Automate business tasks",
-    desc: "Free up your time by automating the repetitive work that grows your business.",
-    icon: "M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z",
-  },
-  {
-    title: "Track sales and revenue",
-    desc: "See your numbers clearly so you always know where your business stands.",
-    icon: "M4 20V10M10 20V4M16 20v-8M22 20H2",
-  },
-  {
-    title: "Get expert business insights",
-    desc: "Understand your market, your customers, and the smartest way forward.",
-    icon: "M12 3l2 4 4.5.6-3.2 3.1.8 4.6L12 13l-4.1 2.3.8-4.6L5.5 7.6 10 7l2-4Z",
-  },
-];
+  { title: "Build a professional website", icon: "globe" },
+  { title: "Run email marketing campaigns", icon: "mail" },
+  { title: "Manage all your social media", icon: "share" },
+  { title: "Automate business tasks", icon: "gear" },
+  { title: "Track sales and revenue", icon: "chart" },
+  { title: "Get expert business insights", icon: "bulb" },
+] as const;
 
 const WHY = [
   {
     title: "AI Business Partner",
-    desc: "A partner that learns your business and gives you advice you can actually use.",
-    icon: "M12 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-6 9a6 6 0 0 1 12 0",
+    desc: "Your 24/7 AI assistant for all business decisions and actions.",
+    icon: "brain",
   },
   {
     title: "Build & Operate",
-    desc: "Everything you need to build and run your business from one place.",
-    icon: "M4 20V4h16v16M4 12h16M4 16h16",
+    desc: "Create and manage your website, marketing, sales and more — in one place.",
+    icon: "monitor",
   },
   {
     title: "Save Time",
-    desc: "Cut through the busywork and focus on the work that moves the needle.",
-    icon: "M12 6v6l4 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z",
+    desc: "Automate repetitive tasks and focus on what matters most.",
+    icon: "clock",
   },
   {
     title: "Grow Faster",
-    desc: "Turn plans into momentum with a clear, always-ready list of next steps.",
-    icon: "M13 3l-7 9h5l-1 9 7-9h-5l1-9Z",
+    desc: "Get data-driven insights and personalized strategies for sustainable growth.",
+    icon: "rocket",
   },
   {
     title: "Scale Globally",
-    desc: "From first idea to global reach — build a business that goes the distance.",
-    icon: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3 12h18M12 3c2.5 2.4 4 5.6 4 9s-1.5 6.6-4 9c-2.5-2.4-4-5.6-4-9s1.5-6.6 4-9Z",
+    desc: "Build a business ready for local and international markets.",
+    icon: "globe",
   },
-];
-
-const FOOTER_COLS = [
-  { title: "Product", links: ["Features", "Pricing", "Success Stories", "Roadmap"] },
-  { title: "Resources", links: ["Help & Support", "Blog", "Guides", "Community"] },
-  { title: "Company", links: ["About", "Careers", "Contact", "Press"] },
-  { title: "Legal", links: ["Privacy", "Terms", "Cookies", "Security"] },
-];
+] as const;
 
 export default function LandingPage() {
   return (
-    <div id="top" className="bg-white">
-      <LandingNav />
-
-      {/* ===================== HERO ===================== */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-32 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 rounded-[50%] bg-gradient-to-b from-ocean-100/70 via-ocean-50/40 to-transparent blur-2xl" aria-hidden="true" />
-
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-16 sm:px-8 lg:grid-cols-2 lg:pt-24">
-          <div>
-            <span className="badge bg-ocean-100 text-ocean-700">Build. Grow. Scale.</span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-ocean-950 sm:text-5xl lg:text-6xl">
+    <div id="top" className={`${jakarta.className} overflow-x-hidden bg-white text-[#12224f]`}>
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f3f7ff_0%,#f7f9ff_46%,#ffffff_100%)]">
+        <LandingNav />
+        <Earth />
+        <div className="relative z-10 mx-auto grid max-w-[1180px] items-center gap-10 px-5 pb-28 pt-6 sm:px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.15fr)_280px] lg:items-start lg:gap-6 lg:pb-36 lg:pt-4">
+          <div className="lg:pt-10">
+            <h1 className="max-w-[460px] text-[42px] font-extrabold leading-[1.05] tracking-[-0.035em] text-[#101a3d] sm:text-[52px]">
               Your Business.
               <br />
-              <span className="bg-gradient-to-r from-ocean-600 to-violet-600 bg-clip-text text-transparent">
-                Smarter. Stronger. Bigger.
-              </span>
+              Smarter. Stronger. <span className="text-[#2f6bff]">Bigger.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-slate-600">
-              Blue Ocean is your AI-powered business partner. Tell it what you’re building and it
-              learns as you work — turning your goals, tasks, and daily progress into grounded,
-              specific advice that helps you move forward.
+            <p className="mt-5 max-w-[430px] text-[16px] leading-relaxed text-[#3d5288] sm:text-[17px]">
+              Blue Ocean is your AI-powered business partner — helping you build, grow and scale your business with less effort.
             </p>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {HERO_PILLARS.map((p) => (
-                <div key={p.title} className="rounded-xl border border-slate-200 bg-white/80 p-4 shadow-soft">
-                  <p className="text-sm font-semibold text-ocean-800">{p.title}</p>
-                  <p className="mt-1 text-sm text-slate-600">{p.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/register" className="btn-gradient px-7 py-3 text-base">
-                Get Started Free
-              </Link>
-              <a href="#features" className="btn-ghost px-7 py-3 text-base">
-                See how it works
-              </a>
-            </div>
-            <p className="mt-3 text-sm text-slate-400">Free to start. No credit card required.</p>
-          </div>
-
-          {/* Hero product visual */}
-          <HeroVisual />
-        </div>
-      </section>
-
-      {/* ===================== RIGHT-SIDE / FEATURES PANEL ===================== */}
-      <section id="features" className="bg-ocean-50/50 py-20">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="badge bg-violet-100 text-violet-700">Powered by AI</span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-ocean-950 sm:text-4xl">
-              Everything Your Business Needs
-            </h2>
-            <p className="mt-3 text-lg text-slate-600">
-              Run your whole business with one AI partner that grows with you.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {FEATURES.map((f) => (
-              <div key={f.title} className="card transition hover:-translate-y-0.5 hover:shadow-soft">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-ocean-100 text-ocean-700">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={f.icon} />
-                  </svg>
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-ocean-900">{f.title}</h3>
-                <p className="mt-1.5 text-sm text-slate-600">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== STORIES (success) ===================== */}
-      <section id="stories" className="py-20">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <span className="badge bg-ocean-100 text-ocean-700">Success Stories</span>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-ocean-950 sm:text-4xl">
-                Founders building with Blue Ocean
-              </h2>
-              <p className="mt-3 text-lg text-slate-600">
-                From first idea to funded growth, Blue Ocean helps founders stay focused on what
-                moves their business forward.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {["Launch faster", "Validate ideas", "Reach customers", "Raise funding"].map((t) => (
-                  <span key={t} className="badge border border-ocean-200 bg-white text-ocean-700">
-                    {t}
+            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[14px] font-semibold text-[#1d2b52]">
+              {["Plan Smarter", "Build Faster", "Grow Systematically"].map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#2f6bff] text-white">
+                    <svg viewBox="0 0 20 20" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.6">
+                      <path d="M4.5 10.5 8 14l7.5-8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </span>
-                ))}
-              </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                { q: "Launched our MVP", n: "3 weeks to market" },
-                { q: "10 pilot customers", n: "in the first month" },
-                { q: "Closed our seed round", n: "with AI-backed clarity" },
-                { q: "Global expansion", n: "from a small team" },
-              ].map((s) => (
-                <div key={s.q} className="card text-center">
-                  <p className="text-2xl font-extrabold text-ocean-700">{s.n}</p>
-                  <p className="mt-1 text-sm text-slate-600">{s.q}</p>
-                </div>
+                  {item}
+                </li>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== WHY BLUE OCEAN ===================== */}
-      <section id="pricing" className="bg-ocean-50/50 py-20">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="badge bg-ocean-100 text-ocean-700">Why Blue Ocean</span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-ocean-950 sm:text-4xl">
-              Built to help you go further
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY.map((w) => (
-              <div key={w.title} className="card flex items-start gap-4">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-gradient text-white">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={w.icon} />
-                  </svg>
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold text-ocean-900">{w.title}</h3>
-                  <p className="mt-1 text-sm text-slate-600">{w.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== FINAL CTA ===================== */}
-      <section id="support" className="py-24">
-        <div className="mx-auto max-w-4xl px-5 sm:px-8">
-          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-ocean-600 to-violet-600 px-6 py-14 text-center shadow-glow sm:px-12">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              Every great business starts with a single step.
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-ocean-50">
-              Join Blue Ocean and let AI help you plan smarter, build faster, and grow
-              systematically — from day one.
-            </p>
+            </ul>
             <Link
               href="/register"
-              className="mt-8 inline-flex items-center justify-center rounded-xl bg-white px-8 py-3.5 text-base font-semibold text-ocean-700 shadow-soft transition hover:bg-ocean-50"
+              className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#4f46e5] px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_28px_rgba(79,70,229,0.35)] transition hover:bg-[#4338ca]"
             >
               Get Started Free
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
-            <p className="mt-4 text-sm text-ocean-100/90">Build. Grow. Scale.</p>
+            <p className="mt-3 text-[13px] text-[#8b95a8]">No credit card required • 14-day free trial</p>
+          </div>
+
+          <HeroVisual />
+
+          <aside id="features" className="rounded-[24px] border border-[#e7ebf6] bg-white p-6 shadow-[0_16px_40px_rgba(37,99,235,0.08)] lg:mt-6">
+            <h2 className="text-[22px] font-extrabold leading-[1.25] tracking-[-0.02em] text-[#14224a]">
+              Everything Your Business Needs — Powered by AI
+            </h2>
+            <ul className="mt-5 space-y-3.5">
+              {FEATURES.map((feature) => (
+                <li key={feature.title} className="flex items-center gap-3 text-[14.5px] font-medium text-[#1c2a4d]">
+                  <FeatureIcon name={feature.icon} />
+                  {feature.title}
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 pb-6 sm:px-6">
+        <div className="mx-auto max-w-[1180px] rounded-[28px] border border-[#e6eaf5] bg-[#f7f8fd] px-4 py-10 sm:px-6">
+          <div className="text-center">
+            <h2 className="text-[28px] font-extrabold tracking-[-0.03em] text-[#14224a] sm:text-[32px]">
+              Why Founders Choose Blue Ocean
+            </h2>
+            <p className="mt-2 text-[14.5px] text-[#7b879c]">
+              More than advice — a complete AI-powered business operating system.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-[#e3e8f4]">
+            {WHY.map((item) => (
+              <div key={item.title} className="px-4 text-center">
+                <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#eceefe] text-[#6d5ce7]">
+                  <WhyIcon name={item.icon} />
+                </span>
+                <h3 className="mt-3 text-[15px] font-bold text-[#172448]">{item.title}</h3>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-[#6d7a98]">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===================== FOOTER ===================== */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
-          <div className="grid gap-10 md:grid-cols-5">
-            <div className="md:col-span-1">
-              <div className="flex items-center gap-2">
-                <Logo className="h-8 w-8" />
-                <span className="text-lg font-bold text-ocean-900">Blue Ocean</span>
-              </div>
-              <p className="mt-3 text-sm text-slate-500">Your AI-powered business partner. Build. Grow. Scale.</p>
+      <section id="journey" className="bg-white px-5 py-8 sm:px-6">
+        <div className="mx-auto grid max-w-[1180px] items-stretch gap-5 lg:grid-cols-[1.55fr_0.85fr]">
+          <div className="rounded-[28px] border border-[#e6eaf5] bg-[#f7f8fd] px-5 py-7 sm:px-8">
+            <h2 className="text-[26px] font-extrabold tracking-[-0.03em] text-[#14224a] sm:text-[28px]">
+              Start Your Entrepreneurial Journey Today
+            </h2>
+            <p className="mt-2 max-w-[640px] text-[14.5px] text-[#6d7a98]">
+              Join thousands of founders using Blue Ocean to build and scale successful businesses.
+            </p>
+            <div className="mt-6">
+              <JourneyForm />
             </div>
-            {FOOTER_COLS.map((col) => (
-              <div key={col.title}>
-                <p className="text-sm font-semibold text-ocean-900">{col.title}</p>
-                <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                  {col.links.map((l) => (
-                    <li key={l}>
-                      <a href="#" className="transition hover:text-ocean-700">
-                        {l}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
-          <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 sm:flex-row">
-            <p>© {new Date().getFullYear()} Blue Ocean. All rights reserved.</p>
-            <p className="italic">Build. Grow. Scale.</p>
-          </div>
+
+          <aside id="stories" className="relative overflow-hidden rounded-[28px] border border-[#e6eaf5] bg-[#f7f8fd] px-5 py-6">
+            <blockquote className="rounded-2xl bg-white px-4 py-3.5 text-[13.5px] leading-relaxed text-[#3c4d73] shadow-[0_8px_24px_rgba(37,99,235,0.06)]">
+              “Blue Ocean gave me the tools, insights and automation I need to focus on growing my business.”
+              <footer className="mt-2 flex flex-wrap items-center gap-2 text-[12.5px] text-[#7b879c]">
+                <span>— A Happy Founder</span>
+                <span className="tracking-tight text-[#f5b400]" aria-label="5 stars">
+                  ★★★★★
+                </span>
+              </footer>
+            </blockquote>
+            <GrowthChart />
+          </aside>
         </div>
+      </section>
+
+      <footer id="support" className="bg-white px-5 py-8 text-center text-[13px] text-[#8b95a8]">
+        <p>
+          © 2024 Blue Ocean. All rights reserved.
+          <span className="mx-2 text-[#d5dbe6]">|</span>
+          <a href="#" className="hover:text-[#2f6bff]">
+            Privacy Policy
+          </a>
+          <span className="mx-2 text-[#d5dbe6]">|</span>
+          <a href="#" className="hover:text-[#2f6bff]">
+            Terms of Use
+          </a>
+        </p>
       </footer>
     </div>
   );
 }
 
-function HeroVisual() {
+function FeatureIcon({ name }: { name: (typeof FEATURES)[number]["icon"] }) {
+  const common = "h-[18px] w-[18px] shrink-0 text-[#4f6ef7]";
+  if (name === "globe") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3c2.5 2.7 3.8 5.8 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.8-3.8-9S9.5 5.7 12 3Z" />
+      </svg>
+    );
+  }
+  if (name === "mail") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M4 7l8 6 8-6" />
+      </svg>
+    );
+  }
+  if (name === "share") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="6" cy="12" r="2.2" />
+        <circle cx="17" cy="6.5" r="2.2" />
+        <circle cx="17" cy="17.5" r="2.2" />
+        <path d="M8 11.2 14.8 7.4M8.1 13l6.7 3.6" />
+      </svg>
+    );
+  }
+  if (name === "gear") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" />
+      </svg>
+    );
+  }
+  if (name === "chart") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M4 19h16" />
+        <path d="M7 16V10M12 16V6M17 16v-4" strokeLinecap="round" />
+      </svg>
+    );
+  }
   return (
-    <div className="relative">
-      <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-ocean-200/50 to-violet-200/50 blur-2xl" aria-hidden="true" />
-      <div className="relative rounded-3xl border border-slate-200 bg-white/90 p-5 shadow-card backdrop-blur">
-        {/* window title bar */}
-        <div className="flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded-full bg-red-400" />
-          <span className="h-3 w-3 rounded-full bg-amber-400" />
-          <span className="h-3 w-3 rounded-full bg-emerald-400" />
-          <div className="ml-3 h-6 flex-1 rounded-md bg-slate-100" />
-        </div>
+    <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M9 18h6M10 21h4" strokeLinecap="round" />
+      <path d="M8 14a5.5 5.5 0 1 1 8 0c-.7.7-1.2 1.5-1.4 2.4h-5.2c-.2-.9-.7-1.7-1.4-2.4Z" />
+    </svg>
+  );
+}
 
-        {/* mini dashboard */}
-        <div className="mt-4 grid gap-3 sm:grid-cols-3">
-          {[
-            { label: "Goal health", value: "Healthy", tone: "text-emerald-600" },
-            { label: "Next actions", value: "4", tone: "text-ocean-700" },
-            { label: "Progress", value: "68%", tone: "text-violet-700" },
-          ].map((s) => (
-            <div key={s.label} className="rounded-xl border border-slate-100 bg-ocean-50/40 p-3">
-              <p className="text-xs text-slate-500">{s.label}</p>
-              <p className={`mt-1 text-lg font-bold ${s.tone}`}>{s.value}</p>
-            </div>
-          ))}
-        </div>
+function WhyIcon({ name }: { name: (typeof WHY)[number]["icon"] }) {
+  const common = "h-6 w-6";
+  if (name === "brain") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.7">
+        <path d="M9 6a3 3 0 0 0-3 3 2.5 2.5 0 0 0-1 4.8A3 3 0 0 0 8 18h.5M15 6a3 3 0 0 1 3 3 2.5 2.5 0 0 1 1 4.8A3 3 0 0 1 16 18h-.5M9 6a3 3 0 0 1 3-2 3 3 0 0 1 3 2M9.5 18V10M14.5 18V10M12 4v6" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (name === "monitor") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.7">
+        <rect x="3" y="4" width="18" height="12" rx="2" />
+        <path d="M8 20h8M12 16v4" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (name === "clock") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.7">
+        <circle cx="12" cy="12" r="8" />
+        <path d="M12 8v4.5l3 2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (name === "rocket") {
+    return (
+      <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.7">
+        <path d="M12 3c3 3 4.5 6.5 4.5 10.2 0 1.2-.4 2.2-1.2 3.1L12 19l-3.3-2.7c-.8-.9-1.2-1.9-1.2-3.1C7.5 9.5 9 6 12 3Z" />
+        <path d="M9 14.5 5.5 16 7 19.5 9.5 17M15 14.5 18.5 16 17 19.5 14.5 17" strokeLinecap="round" />
+        <circle cx="12" cy="10" r="1.3" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.7">
+      <circle cx="12" cy="12" r="8" />
+      <path d="M4 12h16M12 4c2.2 2.3 3.3 5 3.3 8s-1.1 5.7-3.3 8c-2.2-2.3-3.3-5-3.3-8s1.1-5.7 3.3-8Z" />
+    </svg>
+  );
+}
 
-        {/* chart bar */}
-        <div className="mt-4 rounded-xl border border-slate-100 p-3">
-          <p className="text-xs font-medium text-slate-500">Weekly progress</p>
-          <div className="mt-2 flex h-20 items-end gap-1.5">
-            {[35, 55, 42, 70, 60, 85, 95].map((h, i) => (
-              <div key={i} className="flex-1 rounded-md bg-gradient-to-t from-ocean-500 to-violet-500" style={{ height: `${h}%` }} />
-            ))}
-          </div>
-        </div>
-
-        {/* insight row */}
-        <div className="mt-4 flex items-start gap-3 rounded-xl border border-violet-100 bg-violet-50/60 p-3">
-          <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-lg bg-blue-gradient text-white">
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
-              <path d="M8 12h8M12 8v8M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z" />
-            </svg>
-          </span>
-          <div>
-            <p className="text-sm font-semibold text-ocean-900">AI Insight</p>
-            <p className="text-xs text-slate-600">“Your goal is healthy. Focus on signing your first paying customers this week.”</p>
-          </div>
-        </div>
-      </div>
-    </div>
+function GrowthChart() {
+  const bars = [28, 40, 52, 66, 84, 108, 132];
+  return (
+    <svg viewBox="0 0 360 190" className="mt-2 h-[180px] w-full" aria-hidden="true">
+      <defs>
+        <marker id="growth-arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#2f6bff" />
+        </marker>
+        <linearGradient id="bar-blue" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stopColor="#60a5fa" />
+          <stop offset="100%" stopColor="#2563eb" />
+        </linearGradient>
+      </defs>
+      {bars.map((height, index) => (
+        <rect
+          key={height}
+          x={36 + index * 42}
+          y={168 - height}
+          width="26"
+          height={height}
+          rx="4"
+          fill="url(#bar-blue)"
+          opacity={0.45 + index * 0.08}
+        />
+      ))}
+      <path
+        d="M42 150 C 90 146, 140 120, 190 92 S 280 40, 328 18"
+        fill="none"
+        stroke="#2f6bff"
+        strokeWidth="5"
+        strokeLinecap="round"
+        markerEnd="url(#growth-arrow)"
+      />
+    </svg>
   );
 }

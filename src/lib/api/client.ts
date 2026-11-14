@@ -1,4 +1,5 @@
 import { ApiError, type ApiErrorResponse } from "@/types/api";
+import { API_BASE_URL } from "@/lib/api/base-url";
 
 /**
  * Shared fetch wrapper for calling the Laravel API from Server Components,
@@ -8,8 +9,6 @@ import { ApiError, type ApiErrorResponse } from "@/types/api";
  * thin Next.js proxy routes in `app/api/*`. This keeps the Sanctum token out
  * of client-side JS entirely (see lib/auth/session.ts).
  */
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";
 
 interface RequestOptions {
   method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
@@ -21,7 +20,7 @@ interface RequestOptions {
 export async function apiFetch<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const { method = "GET", body, token, cache = "no-store" } = options;
 
-  const res = await fetch(`${API_URL}${path}`, {
+  const res = await fetch(`${API_BASE_URL}${path}`, {
     method,
     headers: {
       "Content-Type": "application/json",

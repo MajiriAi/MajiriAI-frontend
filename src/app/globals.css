@@ -36,4 +36,7 @@ body {
   .badge {
     @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
   }
+  .landing-input {
+    @apply h-[46px] w-full rounded-xl border border-[#e3e8f2] bg-white px-3.5 text-sm text-[#1e293b] shadow-sm outline-none transition placeholder:text-[#b0b8c9] focus:border-[#4f46e5] focus:ring-4 focus:ring-[#4f46e5]/15;
+  }
 }
