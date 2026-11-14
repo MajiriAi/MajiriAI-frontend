@@ -29,7 +29,9 @@ const AVAILABLE_TOOLS = [
 
 export function Step4BusinessOperations({ data, onUpdate, onNext, onBack }: Step4Props) {
   const [businessModel, setBusinessModel] = useState<BusinessModel>(data.businessModel);
-  const [revenueStage, setRevenueStage] = useState(data.revenueStage);
+  const [revenueStage, setRevenueStage] = useState(
+    data.revenueStage || "No revenue yet (pre-revenue)"
+  );
   const [averageMonthlyRevenue, setAverageMonthlyRevenue] = useState(data.averageMonthlyRevenue);
   const [teamSize, setTeamSize] = useState(data.teamSize || "1-5");
   const [toolsUsed, setToolsUsed] = useState<string[]>(data.toolsUsed || []);

@@ -98,7 +98,7 @@ export function LandingNav() {
             href="/onboarding"
             className="rounded-full bg-[#2563EB] px-4 py-2 text-sm font-semibold text-white shadow-xs transition hover:bg-blue-700"
           >
-            Onboarding →
+            Sign Up →
           </Link>
           <Link
             href="/login"
@@ -129,7 +129,7 @@ export function LandingNav() {
               </a>
             ))}
             <Link href="/onboarding" onClick={() => setOpen(false)} className="mt-2 rounded-full bg-[#2563EB] px-4 py-2.5 text-center font-semibold text-white shadow-xs">
-              Onboarding →
+              Sign Up →
             </Link>
             <Link href="/login" onClick={() => setOpen(false)} className="mt-1 rounded-full border border-[#c9c7f5] bg-white px-4 py-2.5 text-center font-semibold text-[#4f46e5]">
               Sign In

@@ -39,12 +39,12 @@ function FormattedMessage({ content }: { content: string }) {
   }
 
   for (const line of lines) {
-    const h = line.match(/^#{1,3}\s+(.*)/);
-    if (h) {
+    const heading = line.match(/^#{1,3}\s+(.*)/)?.[1];
+    if (heading !== undefined) {
       flushList();
       nodes.push(
         <p key={nodes.length} style={serifFont} className="mt-3 mb-1 text-[15px] font-medium text-[#20221F]">
-          {renderInline(h[1] ?? "")}
+          {renderInline(heading)}
         </p>
       );
       continue;

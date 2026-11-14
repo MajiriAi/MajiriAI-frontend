@@ -34,7 +34,9 @@ export function Step2YourBusiness({ data, onUpdate, onNext, onBack }: Step2Props
   const [businessName, setBusinessName] = useState(data.businessName);
   const [businessDescription, setBusinessDescription] = useState(data.businessDescription);
   const [businessStage, setBusinessStage] = useState<BusinessStage>(data.businessStage);
-  const [primaryIndustry, setPrimaryIndustry] = useState(data.primaryIndustry);
+  const [primaryIndustry, setPrimaryIndustry] = useState(
+    data.primaryIndustry || INDUSTRIES[0]
+  );
   const [businessLocation, setBusinessLocation] = useState(data.businessLocation || `${data.city ? data.city + ", " : ""}${data.country || "Nigeria"}`);
   const [error, setError] = useState("");
 

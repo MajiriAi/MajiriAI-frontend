@@ -4,9 +4,11 @@ import { OnboardingData } from "@/types/onboarding";
 
 interface Step7Props {
   data: OnboardingData;
+  isDemo?: boolean;
+  onBack?: () => void;
 }
 
-export function Step7Complete({ data }: Step7Props) {
+export function Step7Complete({ data, isDemo = false, onBack }: Step7Props) {
   const router = useRouter();
 
   return (
@@ -22,8 +24,15 @@ export function Step7Complete({ data }: Step7Props) {
           You&apos;re all set, {data.firstName || "Founder"}! 🎉
         </h1>
         <p className="mx-auto mt-2 max-w-xl text-sm sm:text-[15px] text-[#475467] leading-relaxed">
-          Your business profile is ready. MAJIRI AI will now start working for you — researching, analyzing, and preparing your personalized growth workspace.
+          {isDemo
+            ? "Your business profile preview is ready. Create an account to save these answers and activate your personalized MAJIRI AI workspace."
+            : "Your business profile is ready. MAJIRI AI will now start working for you — researching, analyzing, and preparing your personalized growth workspace."}
         </p>
+        {isDemo && (
+          <p className="mx-auto mt-3 max-w-xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5 text-xs font-medium text-amber-800">
+            Demo preview: your answers are only stored in this browser until you create an account.
+          </p>
+        )}
       </div>
 
       {/* What Happens Next Timeline */}
@@ -76,23 +85,47 @@ export function Step7Complete({ data }: Step7Props) {
 
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-        <button
-          type="button"
-          onClick={() => router.push("/dashboard")}
-          className="w-full sm:w-1/2 rounded-xl border border-slate-300 bg-white px-5 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 flex items-center justify-center gap-2"
-        >
-          <span>▶ Take a Quick Tour (2 min)</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => router.push("/dashboard")}
-          className="w-full sm:w-1/2 rounded-xl bg-[#2563EB] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 flex items-center justify-center gap-2"
-        >
-          <span>Go to My Dashboard</span>
-          <svg viewBox="0 0 16 16" className="h-4 w-4 fill-none stroke-currentColor stroke-[2.2]">
-            <path d="M6 3.5l4.5 4.5L6 12.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
+        {isDemo ? (
+          <>
+            <button
+              type="button"
+              onClick={onBack}
+              className="w-full sm:w-1/2 rounded-xl border border-slate-300 bg-white px-5 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+            >
+              ← Review My Answers
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/register")}
+              className="w-full sm:w-1/2 rounded-xl bg-[#2563EB] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 flex items-center justify-center gap-2"
+            >
+              <span>Create Account to Save</span>
+              <svg viewBox="0 0 16 16" className="h-4 w-4 fill-none stroke-currentColor stroke-[2.2]">
+                <path d="M6 3.5l4.5 4.5L6 12.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={() => router.push("/dashboard")}
+              className="w-full sm:w-1/2 rounded-xl border border-slate-300 bg-white px-5 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 flex items-center justify-center gap-2"
+            >
+              <span>▶ Take a Quick Tour (2 min)</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/dashboard")}
+              className="w-full sm:w-1/2 rounded-xl bg-[#2563EB] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 flex items-center justify-center gap-2"
+            >
+              <span>Go to My Dashboard</span>
+              <svg viewBox="0 0 16 16" className="h-4 w-4 fill-none stroke-currentColor stroke-[2.2]">
+                <path d="M6 3.5l4.5 4.5L6 12.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </>
+        )}
       </div>
 
       {/* Quote */}

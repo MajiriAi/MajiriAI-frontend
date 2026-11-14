@@ -46,21 +46,61 @@ export interface OnboardingData {
   additionalPreferences: string;
 }
 
-export const INITIAL_ONBOARDING_DATA: OnboardingData = {
-  // Step 1: About You (pre-filled dummy data for preview)
+/**
+ * Clean defaults for a brand-new founder. The backend is the source of truth
+ * once onboarding starts, so nothing here should look like real saved data.
+ */
+export const EMPTY_ONBOARDING_DATA: OnboardingData = {
+  firstName: "",
+  country: "Nigeria",
+  city: "",
+  roleTitle: "Founder / Owner",
+
+  businessName: "",
+  businessDescription: "",
+  businessStage: "idea",
+  primaryIndustry: "Fashion & Apparel",
+  businessLocation: "",
+
+  primaryGoal: "scale_revenue",
+  specificGoals: [],
+  targetTimeline: "Next 12 months",
+  goalNotes: "",
+
+  businessModel: "sell_products",
+  revenueStage: "No revenue yet (pre-revenue)",
+  averageMonthlyRevenue: "",
+  teamSize: "Just me (Solo founder)",
+  toolsUsed: [],
+  operationsDescription: "",
+
+  supportAreas: [],
+  communicationStyle: "detailed_reports",
+  updateFrequency: "Daily",
+  workingHoursStart: "09:00 AM",
+  workingHoursEnd: "06:00 PM",
+  timezone: "WAT (GMT+1)",
+  preferredLanguage: "English",
+  integrations: [],
+  additionalPreferences: "",
+};
+
+/**
+ * Sample data used only by the passwordless demo preview, so visitors can see
+ * the complete onboarding experience without creating a backend account.
+ */
+export const DEMO_ONBOARDING_DATA: OnboardingData = {
   firstName: "Ajiri",
   country: "Nigeria",
   city: "Warri, Delta State",
   roleTitle: "Founder / Owner",
 
-  // Step 2: Your Business
   businessName: "Eni's Fashion Home",
   businessDescription: "A modern fashion store offering quality and affordable clothing for women.",
   businessStage: "idea",
   primaryIndustry: "Fashion & Apparel",
   businessLocation: "Warri, Delta State, Nigeria",
 
-  // Step 3: Business Goals
   primaryGoal: "scale_revenue",
   specificGoals: [
     "Reach ₦1M+ in monthly revenue",
@@ -72,7 +112,6 @@ export const INITIAL_ONBOARDING_DATA: OnboardingData = {
   targetTimeline: "Next 12 months",
   goalNotes: "Need guidance on registration, supplier sourcing, and online store setup.",
 
-  // Step 4: Business Operations
   businessModel: "sell_products",
   revenueStage: "No revenue yet (pre-revenue)",
   averageMonthlyRevenue: "500,000",
@@ -80,7 +119,6 @@ export const INITIAL_ONBOARDING_DATA: OnboardingData = {
   toolsUsed: ["WhatsApp", "Social Media"],
   operationsDescription: "Product sourcing, sales (offline), customer engagement via social media.",
 
-  // Step 5: Preferences
   supportAreas: [
     "Strategy & Planning",
     "Marketing & Sales",
@@ -98,3 +136,16 @@ export const INITIAL_ONBOARDING_DATA: OnboardingData = {
   additionalPreferences: "Need guidance on supplier sourcing and digital storefront.",
 };
 
+/**
+ * Shallow-merge saved data over defaults. `null` values are skipped so a
+ * partially saved backend draft cannot wipe out local defaults.
+ */
+export function mergeOnboardingData(
+  base: OnboardingData,
+  ...patches: Array<Partial<OnboardingData> | null | undefined>
+): OnboardingData {
+  return patches.reduce<OnboardingData>(
+    (data, patch) => (patch ? { ...data, ...patch } : data),
+    base
+  );
+}
