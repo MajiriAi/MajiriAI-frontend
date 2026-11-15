@@ -167,7 +167,7 @@ export function Dashboard() {
       </div>
 
       <div className="mt-8 flex gap-3">
-        <Link className="btn-gradient" href="/ai">Open Majiri-AI AI</Link>
+        <Link className="btn-gradient" href="/ai">Open Majiri-AI chat</Link>
         <Link className="btn-ghost" href="/tasks">Manage tasks</Link>
         <Link className="btn-ghost" href="/goals">Manage goals</Link>
       </div>

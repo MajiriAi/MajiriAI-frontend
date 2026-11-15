@@ -9,7 +9,7 @@ const NAV = [
   { label: "Goals", href: "/goals" },
   { label: "Tasks", href: "/tasks" },
   { label: "Activities", href: "/activities" },
-  { label: "Majiri-AI AI", href: "/ai" },
+  { label: "Majiri-AI chat", href: "/ai" },
 ];
 
 export function AppShell({ children, fullHeight }: { children: React.ReactNode; fullHeight?: boolean }) {
