@@ -11,7 +11,7 @@ export function AppPage({ title, description }: AppPageProps) {
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="font-semibold text-brand-700">
-            Blue Ocean
+            Majiri-AI
           </Link>
           <nav className="flex gap-4 text-sm text-slate-600" aria-label="Main navigation">
             <Link href="/dashboard" className="hover:text-brand-700">Dashboard</Link>
@@ -21,7 +21,7 @@ export function AppPage({ title, description }: AppPageProps) {
         </div>
       </header>
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <p className="mb-3 text-sm font-medium uppercase tracking-wide text-brand-600">Blue Ocean</p>
+        <p className="mb-3 text-sm font-medium uppercase tracking-wide text-brand-600">Majiri-AI</p>
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900">{title}</h1>
         <p className="mt-3 max-w-2xl text-slate-600">{description}</p>
       </section>

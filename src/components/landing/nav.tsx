@@ -34,7 +34,7 @@ export function LandingNav() {
         <Link href="#top" className="flex items-center gap-2.5">
           <BrandMark className="h-10 w-10" />
           <span className="leading-tight">
-            <span className="block text-[15px] font-extrabold tracking-[0.04em] text-[#10245c]">BLUE OCEAN</span>
+            <span className="block text-[15px] font-extrabold tracking-[0.04em] text-[#10245c]">Majiri-AI</span>
             <span className="block text-[11px] font-medium text-[#7b879c]">Build. Grow. Scale.</span>
           </span>
         </Link>

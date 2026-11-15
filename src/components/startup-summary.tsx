@@ -43,7 +43,7 @@ export function StartupSummary() {
   return (
     <div className="space-y-5">
       <header>
-        <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Blue Ocean context</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Majiri-AI context</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight text-ocean-950">Your startup</h1>
       </header>
 

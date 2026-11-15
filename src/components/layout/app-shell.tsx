@@ -9,7 +9,7 @@ const NAV = [
   { label: "Goals", href: "/goals" },
   { label: "Tasks", href: "/tasks" },
   { label: "Activities", href: "/activities" },
-  { label: "Blue Ocean AI", href: "/ai" },
+  { label: "Majiri-AI AI", href: "/ai" },
 ];
 
 export function AppShell({ children, fullHeight }: { children: React.ReactNode; fullHeight?: boolean }) {
@@ -35,7 +35,7 @@ export function AppShell({ children, fullHeight }: { children: React.ReactNode; 
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <Link href="/dashboard" className="flex items-center gap-2">
             <Logo className="h-8 w-8" />
-            <span className="text-lg font-bold tracking-tight text-ocean-900">Blue Ocean</span>
+            <span className="text-lg font-bold tracking-tight text-ocean-900">Majiri-AI</span>
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex" aria-label="Dashboard">

@@ -97,7 +97,7 @@ function Dashboard() {
       </aside>
       <div className="min-w-0 flex-1 p-2">
         <div className="mb-1.5 flex items-center justify-between">
-          <p className="text-[9px] font-extrabold tracking-wide text-[#1e3a8a]">BLUE OCEAN</p>
+          <p className="text-[9px] font-extrabold tracking-wide text-[#1e3a8a]">Majiri-AI</p>
           <div className="flex gap-1 text-[7px] text-[#64748b]">
             <span className="rounded bg-white px-1.5 py-0.5 font-semibold text-[#2454d6] shadow-sm">Overview</span>
             <span className="px-1 py-0.5">Sales</span>
