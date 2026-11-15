@@ -27,7 +27,7 @@ export function SettingsPanel() {
   return (
     <div className="max-w-2xl space-y-5">
       <header>
-        <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Blue Ocean</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-ocean-600">Majiri-AI</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight text-ocean-950">Settings</h1>
         <p className="mt-2 text-slate-600">Manage your account and sign out.</p>
       </header>
@@ -49,7 +49,7 @@ export function SettingsPanel() {
       <section className="card">
         <h2 className="font-semibold text-ocean-900">Session</h2>
         <p className="mt-1 text-sm text-slate-600">
-          Signing out returns you to the Blue Ocean landing page.
+          Signing out returns you to the Majiri-AI landing page.
         </p>
         <button
           onClick={logout}

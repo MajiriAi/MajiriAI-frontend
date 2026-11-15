@@ -13,7 +13,7 @@ type AuthPageProps = {
 const VALUE_PROPS = [
   {
     title: "Location Context",
-    desc: "Blue Ocean keeps the full picture of your business and where it operates in context.",
+    desc: "Majiri-AI keeps the full picture of your business and where it operates in context.",
     icon: "M12 21s-6-5.1-6-10a6 6 0 1 1 12 0c0 4.9-6 10-6 10Zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z",
   },
   {
@@ -43,7 +43,7 @@ export function AuthPage({ title, description, alternateHref, alternateLabel }: 
 
         <div className="relative flex items-center gap-2">
           <Logo className="h-9 w-9" />
-          <span className="text-xl font-bold">Blue Ocean</span>
+          <span className="text-xl font-bold">Majiri-AI</span>
         </div>
 
         <div className="relative">
@@ -71,7 +71,7 @@ export function AuthPage({ title, description, alternateHref, alternateLabel }: 
           </ul>
         </div>
 
-        <p className="relative text-sm text-ocean-100/80">© {new Date().getFullYear()} Blue Ocean</p>
+        <p className="relative text-sm text-ocean-100/80">© {new Date().getFullYear()} Majiri-AI</p>
       </aside>
 
       {/* Right form panel */}
@@ -79,7 +79,7 @@ export function AuthPage({ title, description, alternateHref, alternateLabel }: 
         <div className="w-full max-w-md">
           <div className="mb-8 flex items-center gap-2 lg:hidden">
             <Logo className="h-9 w-9" />
-            <span className="text-xl font-bold text-ocean-900">Blue Ocean</span>
+            <span className="text-xl font-bold text-ocean-900">Majiri-AI</span>
           </div>
 
           <h1 className="text-3xl font-bold tracking-tight text-ocean-950">{title}</h1>

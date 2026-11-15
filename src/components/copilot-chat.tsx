@@ -161,7 +161,7 @@ export function CopilotChat() {
     const data = await r.json();
     setLoading(false);
     if (r.ok) setMessages((m) => [...m, data]);
-    else setError(data.message ?? "Blue-Ocean could not respond.");
+    else setError(data.message ?? "Majiri-AI could not respond.");
   }
 
   async function analyzeStartup() {
@@ -209,7 +209,7 @@ export function CopilotChat() {
             </button>
             <div>
               <h1 style={serifFont} className="text-[28px] font-medium tracking-tight text-[#20221F]">
-                Blue-Ocean
+                Majiri-AI
               </h1>
               <p className="mt-0.5 text-sm text-[#6B6A60]">
                 Practical guidance grounded in your founder journey.
@@ -288,7 +288,7 @@ export function CopilotChat() {
                 </div>
               ) : (
                 <div key={m.id} className="max-w-[85%] border-l-2 border-ocean-500 pl-4">
-                  <p className="mb-1 text-xs text-[#8C8A7C]">Blue-Ocean</p>
+                  <p className="mb-1 text-xs text-[#8C8A7C]">Majiri-AI</p>
                   <FormattedMessage content={m.content} />
                 </div>
               )
@@ -296,7 +296,7 @@ export function CopilotChat() {
 
             {loading && (
               <div className="max-w-[85%] border-l-2 border-ocean-500 pl-4">
-                <p className="mb-1 text-xs text-[#8C8A7C]">Blue-Ocean</p>
+                <p className="mb-1 text-xs text-[#8C8A7C]">Majiri-AI</p>
                 <span className="flex gap-1 py-1">
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#B5B2A0] [animation-delay:0ms]" />
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#B5B2A0] [animation-delay:150ms]" />
@@ -319,7 +319,7 @@ export function CopilotChat() {
             className="flex-1 rounded-xl border border-ocean-100 bg-[#FBFAF6] px-4 py-2.5 text-sm text-[#20221F] placeholder-[#A9A798] outline-none transition focus:border-ocean-500 focus:ring-2 focus:ring-ocean-500/15"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Ask Blue-Ocean…"
+            placeholder="Ask Majiri-AI…"
             disabled={loading}
           />
           <button

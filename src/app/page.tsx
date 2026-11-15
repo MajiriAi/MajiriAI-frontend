@@ -60,7 +60,7 @@ export default function LandingPage() {
               Smarter. Stronger. <span className="text-[#2f6bff]">Bigger.</span>
             </h1>
             <p className="mt-5 max-w-[430px] text-[16px] leading-relaxed text-[#3d5288] sm:text-[17px]">
-              Blue Ocean is your AI-powered business partner — helping you build, grow and scale your business with less effort.
+              Majiri-AI is your AI-powered business partner — helping you build, grow and scale your business with less effort.
             </p>
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[14px] font-semibold text-[#1d2b52]">
               {["Plan Smarter", "Build Faster", "Grow Systematically"].map((item) => (
@@ -108,7 +108,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-[1180px] rounded-[28px] border border-[#e6eaf5] bg-[#f7f8fd] px-4 py-10 sm:px-6">
           <div className="text-center">
             <h2 className="text-[28px] font-extrabold tracking-[-0.03em] text-[#14224a] sm:text-[32px]">
-              Why Founders Choose Blue Ocean
+              Why Founders Choose Majiri-AI
             </h2>
             <p className="mt-2 text-[14.5px] text-[#7b879c]">
               More than advice — a complete AI-powered business operating system.
@@ -135,7 +135,7 @@ export default function LandingPage() {
               Start Your Entrepreneurial Journey Today
             </h2>
             <p className="mt-2 max-w-[640px] text-[14.5px] text-[#6d7a98]">
-              Join thousands of founders using Blue Ocean to build and scale successful businesses.
+              Join thousands of founders using Majiri-AI to build and scale successful businesses.
             </p>
             <div className="mt-6">
               <JourneyForm />
@@ -144,7 +144,7 @@ export default function LandingPage() {
 
           <aside id="stories" className="relative overflow-hidden rounded-[28px] border border-[#e6eaf5] bg-[#f7f8fd] px-5 py-6">
             <blockquote className="rounded-2xl bg-white px-4 py-3.5 text-[13.5px] leading-relaxed text-[#3c4d73] shadow-[0_8px_24px_rgba(37,99,235,0.06)]">
-              “Blue Ocean gave me the tools, insights and automation I need to focus on growing my business.”
+              “Majiri-AI gave me the tools, insights and automation I need to focus on growing my business.”
               <footer className="mt-2 flex flex-wrap items-center gap-2 text-[12.5px] text-[#7b879c]">
                 <span>— A Happy Founder</span>
                 <span className="tracking-tight text-[#f5b400]" aria-label="5 stars">
@@ -159,7 +159,7 @@ export default function LandingPage() {
 
       <footer id="support" className="bg-white px-5 py-8 text-center text-[13px] text-[#8b95a8]">
         <p>
-          © 2024 Blue Ocean. All rights reserved.
+          © 2024 Majiri-AI. All rights reserved.
           <span className="mx-2 text-[#d5dbe6]">|</span>
           <a href="#" className="hover:text-[#2f6bff]">
             Privacy Policy

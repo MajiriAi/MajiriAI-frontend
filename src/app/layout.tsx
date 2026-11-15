@@ -4,9 +4,9 @@ import { Fraunces } from "next/font/google";
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces" });
 
 export const metadata: Metadata = {
-  title: "Blue Ocean — Build. Grow. Scale.",
+  title: "Majiri-AI — Build. Grow. Scale.",
   description:
-    "Blue Ocean is your AI-powered business partner that helps founders plan smarter, build faster, and grow systematically.",
+    "Majiri-AI is your AI-powered business partner that helps founders plan smarter, build faster, and grow systematically.",
 };
 
 export default function RootLayout({
